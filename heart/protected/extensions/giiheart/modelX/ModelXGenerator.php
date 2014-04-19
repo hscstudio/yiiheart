@@ -5,7 +5,7 @@ Yii::import('gii.generators.model.ModelGenerator');
 class ModelXGenerator extends ModelGenerator
 {
 	//public $codeModel='gii.generators.model.ModelCode';
-	public $codeModel = 'bootstrap.gii.modelX.ModelXCode';
+	public $codeModel = 'ext.giiheart.modelX.ModelXCode';
 
 	/**
 	 * Provides autocomplete table names
