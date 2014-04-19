@@ -1,0 +1,15 @@
+#page {
+    padding-top: 60px;
+}
+
+#main-search:focus{
+	width:120%;
+}
+
+.select2-container{
+	margin-bottom: 10px !important;
+}
+
+.toggle-button{
+	margin-bottom: 10px !important;	
+}

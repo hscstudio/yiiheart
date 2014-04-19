@@ -1,11 +1,12 @@
-yiiheart
+﻿YiiHeart
 ========
-
+---
 YiiHeart is Yii Webapp Startup
 
 AppVersion 1.0, 
 manualVersion 1.0
 By Hafid Mukhlasin [milisstudio @ gmail dot com]
+---
 
 ## Apa Itu YiiHeart
 Yii Hearts adalah webapp atau bootsrap yang digenerate dari framework Yii dan telah dikustomisasi. Sehingga siap digunakan sebagai base untuk membuat sebuah aplikasi.
@@ -45,7 +46,7 @@ Agar lebih maksimal dalam penggunaan Yii Heart, berikut ini beberapa aturan yang
 *	Penulisan nama field untuk foreign key sebaiknya gunakan prefix tabelnya didepan. Contoh: ref_religion_id, tb_training_id
 *	Tambahkan field2 default pada setiap tabel Anda, yaitu created, createdBy, modified, modifiedBy, deleted, deletedBy.
 *	Tools untuk desain database mysql yang recomendate dan profesional adalah MySQL Workbench (ini yang belum ada di PostgreeSQL dan MariaDB), dan aturan diatas selaras dengan MySQL Workbench
-GENERATOR
+### Generator
 *	Untuk generate model, pada gii, gunakan Model X Generator. Isikan field Tabel prefix tabel baru kemudian field Table Name. Lalu biarkan apa adanya field Model Class
  
 *	Untuk generate CRUD, pada gii, gunakan Crud X Generator. Gunakan seperti biasa.
@@ -77,4 +78,9 @@ misal : protected/controllers/latihan/trainingDocumentController.php
  Update line 9 – 12, sesuaikan dengan parentnya.
 3.	Selesai. Ready to use.
 
+YiiHeart dibuat dengan segenap cinta :)
+
 Thx
+
+Hafid Mukhlasin
+Depok - Jawa Barat
