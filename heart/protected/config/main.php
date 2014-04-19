@@ -33,7 +33,7 @@ return array(
 			'password'=>'1',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
-			'generatorPaths' => array('booster.gii'),
+			'generatorPaths' => array('ext.giiheart'),
 		),
 		'rights'=>array( 
 			'superuserName'=>'admin', // Name of the role with super user privileges. 

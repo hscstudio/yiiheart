@@ -90,11 +90,63 @@ Yii::app()->clientScript->registerScript('search', "
 					array_search($data,$this->grid->dataProvider->getData())+1',
 				'htmlOptions' => array('style' =>'width: 60px'),
 		),
-		'tb_training_id',
-		'name',
-		'filename',
-		'description',
-		'status',
+		//'tb_training_id',
+			array(
+		        'header' => 'Name',
+		        'name'=> 'name',
+		        'type'=>'raw',
+		        'value' => '($data->name)',
+		        'class' => 'bootstrap.widgets.TbEditableColumn',
+	            'headerHtmlOptions' => array('style' => 'width:80px'),
+				'editable' => array(
+					'type'    => 'text',
+					'url'     => $this->createUrl('editable'),
+					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+				)
+		    ),
+			
+			array(
+		        'header' => 'Filename',
+		        'name'=> 'filename',
+		        'type'=>'raw',
+		        'value' => '($data->filename)',
+		        'class' => 'bootstrap.widgets.TbEditableColumn',
+	            'headerHtmlOptions' => array('style' => 'width:80px'),
+				'editable' => array(
+					'type'    => 'text',
+					'url'     => $this->createUrl('editable'),
+					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+				)
+		    ),
+			
+			array(
+		        'header' => 'Description',
+		        'name'=> 'description',
+		        'type'=>'raw',
+		        'value' => '($data->description)',
+		        'class' => 'bootstrap.widgets.TbEditableColumn',
+	            'headerHtmlOptions' => array('style' => 'width:80px'),
+				'editable' => array(
+					'type'    => 'text',
+					'url'     => $this->createUrl('editable'),
+					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+				)
+		    ),
+			
+			array(
+		        'header' => 'Status',
+		        'name'=> 'status',
+		        'type'=>'raw',
+		        'value' => '($data->status)',
+		        'class' => 'bootstrap.widgets.TbEditableColumn',
+	            'headerHtmlOptions' => array('style' => 'width:80px'),
+				'editable' => array(
+					'type'    => 'text',
+					'url'     => $this->createUrl('editable'),
+					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+				)
+		    ),
+			
 		//'created',
 		//'createdBy',
 		//'modified',

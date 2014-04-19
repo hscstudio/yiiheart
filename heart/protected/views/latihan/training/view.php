@@ -8,7 +8,7 @@ $this->menuCaption='Sub Menu';
 $this->menu=array(
 	array('label'=>'View Training','url'=>array('view','id'=>$model->id),'icon'=>'fa fa-eye','active'=>true),
 	// MASUKKAN DISINI CRUD ANAK LAINNYA
-	array('label'=>'Training Document','url'=>Yii::app()->createUrl("latihan/trainingDocument/index", array("pId"=>$model->id)),'icon'=>'fa fa-list-alt'),
+	array('label'=>'NAMA MODEL ANAK','url'=>Yii::app()->createUrl("CONTROLLER MODEL ANAK", array("pId"=>$model->id)),'icon'=>'fa fa-list-alt'),
 	
 );
 

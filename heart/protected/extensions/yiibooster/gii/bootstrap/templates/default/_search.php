@@ -15,10 +15,6 @@
 	if (strpos($field, 'password') !== false) {
 		continue;
 	}
-
-	if (in_array($column->name, 
-		array('id','created','createdBy','modified','modifiedBy', 'deleted', 'deletedBy'))) 
-		continue;
 	?>
 	<?php echo "<?php echo " . $this->generateActiveRow($this->modelClass, $column) . "; ?>\n"; ?>
 

@@ -83,7 +83,7 @@
 
 <?php
 $this->widget('bootstrap.widgets.TbNavbar', array(
-	'brand' => '<small>Copyright &copy; 2014 by BPPK. All Rights Reserved</small>',
+	'brand' => '<small>Copyright &copy; 2014 by Hafid Mukhlasin. All Rights Reserved</small>',
 	'fixed' => 'bottom',
 	'type' => 'inverse',
 ));

@@ -16,6 +16,39 @@ Yii::import('gii.generators.crud.CrudCode');
  */
 class CrudZCode extends CrudCode
 {
+	public $modelParent;
+	public $controllerParent;
+	public $connectionId='db';
+
+	public function rules()
+    {
+        return array_merge(
+            parent::rules(),
+            array(
+                array('modelParent, controllerParent', 'required'),
+            )
+        );
+    }
+
+    /**
+     * Sets the labels for the new model attributes (class properties).
+     * #MethodTracker
+     * This method overrides {@link CrudCode::attributeLabels}, from version 1.1.7 (r3135). Changes:
+     * <ul>
+     * <li>Adds the labels for the new attributes in the code generation form: authtype; validation.</li>
+     * </ul>
+     */
+    public function attributeLabels()
+    {
+        return array_merge(
+            parent::attributeLabels(),
+            array(
+                'modelParent' => 'Model Parent Class',
+                'controllerParent' => 'Controller ID Parent',
+            )
+        );
+    }
+
 	public function generateActiveRow($modelClass, $column)
 	{
 		if ($column->type === 'boolean') {

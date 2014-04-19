@@ -4,6 +4,8 @@
  * The following variables are available in this template:
  * - $this: the BootCrudCode object
  */
+
+$modelParent = new $this->modelParent;
 ?>
 <?php echo "<?php\n"; ?>
 
@@ -14,9 +16,9 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 	* using two-column layout. See 'protected/views/layouts/column2.php'.
 	*/
 	public $layout='//layouts/column2';
-	public $pName = ''; //parent Model Class Name => Program
-	public $pUrl = ''; //parent URL => pusdiklat/planning/program
-	public $pId = ''; //parent field ID => programId
+	public $pName = '<?php echo $this->modelParent; ?>'; //parent Model Class Name => Program
+	public $pUrl = '<?php echo $this->controllerParent; ?>'; //parent URL => pusdiklat/planning/program
+	public $pId = '<?php echo $modelParent->tableName().'_'.$this->tableSchema->primaryKey; ?>'; //parent field ID => programId
 
 	/**
 	* @return array action filters

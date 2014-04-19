@@ -184,7 +184,6 @@ $modifiedBy=false;
 $deleted=false;
 $deletedBy=false;
 $status=false;
-$ref_satker_id=false;
 foreach($columns as $name=>$column)
 {
 	if($column->type==='string')
@@ -203,7 +202,6 @@ foreach($columns as $name=>$column)
 	if($name=='deleted') $deleted=true;
 	if($name=='deletedBy') $deletedBy=true;
 	if($name=='status') $status=true;
-	if($name=='ref_satker_id') $ref_satker_id=true;
 }
 ?>
 
@@ -244,13 +242,6 @@ foreach($columns as $name=>$column)
             <?php if($modifiedBy) { ?> $this->modifiedBy=Yii::app()->user->id; <?php echo "\n"; } ?>
         }
 
-        <?php if($ref_satker_id) { ?> 
-        $ref_satker_id=(int)@Yii::app()->user->ref_satker_id; 
-        if($ref_satker_id>0){
-        	$this->ref_satker_id = $ref_satker_id;
-        }
-        <?php } ?>
-
         return parent::beforeSave();
     }
 
@@ -280,27 +271,6 @@ foreach($columns as $name=>$column)
 	        );
         <?php } ?>
 
-        <?php if($ref_satker_id and $deleted) { ?> 
-	        $ref_satker_id=(int)@Yii::app()->user->ref_satker_id; 
-	        if($ref_satker_id>0){
-	        	$scope = array(
-		            'condition'=>"ref_satker_id=<?php echo $ref_satker_id; ?> AND deleted IS NULL",
-		        );
-	        }
-	        <?php 
-	        echo "\n";
-        } 
-        else if($ref_satker_id) { ?> 
-	        $ref_satker_id=(int)@Yii::app()->user->ref_satker_id; 
-	        if($ref_satker_id>0){
-	        	$scope = array(
-		            'condition'=>"ref_satker_id=<?php echo $ref_satker_id; ?>",
-		        );
-	        }
-	        <?php 
-	        echo "\n";
-        } 
-        ?>
         return $scope;
     }
 }

@@ -94,7 +94,7 @@ echo "<?php \$box = \$this->beginWidget(
 		        	<?php
 		        } 
 		        else{ ?>
-		        	'value' => ($model-><?php echo $value; ?>->name),
+		        	'value' => (@$model-><?php echo $value; ?>->name),
 		        	<?php
 		    	}
 		        ?>

@@ -105,23 +105,71 @@ foreach ($this->tableSchema->columns as $column) {
 				'htmlOptions' => array('style' =>'width: 60px'),\n" .
 			"\t\t),\n";
 	}
-	else if(substr($column->name,0,4)=='ref_' or ($count>5) or in_array($column->name, array('created','createdBy','modified','modifiedBy','deleted','deletedBy'))){
+	else if(substr($column->name,0,4)=='ref_' or substr($column->name,0,3)=='tb_' or in_array($column->name, array('created','createdBy','modified','modifiedBy','deleted','deletedBy'))){
 		echo "\t\t//'" . $column->name . "',\n";
 	}
-	else if($column->dbType=='tinyint(1)'){
-		?>
-		array(
-	        'header' => '<?php echo ucfirst($column->name); ?>',
-	        'name'=> '<?php echo $column->name; ?>',
-	        'type'=>'raw',
-	        'value' => '($data-><?php echo $column->name; ?>)?"on":"off"',
-	    ),
-		<?php
-		echo "\n";
-		++$count;
-	}
 	else{
-		echo "\t\t'" . $column->name . "',\n";
+		if ($count>5) echo "/*\n";
+
+		if($column->dbType=='tinyint(1)'){
+			?>
+			array(
+		        'header' => '<?php echo ucfirst($column->name); ?>',
+		        'name'=> '<?php echo $column->name; ?>',
+		        'type'=>'raw',
+		        'value' => '($data-><?php echo $column->name; ?>)?"on":"off"',
+		        'class' => 'bootstrap.widgets.TbEditableColumn',
+	            'headerHtmlOptions' => array('style' => 'width:80px'),
+				'editable' => array(
+					'type'    => 'select',
+					'url'     => $this->createUrl('editable'),
+					'source'  => array(0 => 'Off', 1 => 'On'),
+					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+				)
+		    ),
+			<?php
+			echo "\n";
+		}
+		else if($column->dbType=='date'){
+			?>
+			array(
+		        'header' => '<?php echo ucfirst($column->name); ?>',
+		        'name'=> '<?php echo $column->name; ?>',
+		        'type'=>'raw',
+		        'value' => '($data-><?php echo $column->name; ?>)',
+		        'class' => 'bootstrap.widgets.TbEditableColumn',
+	            'headerHtmlOptions' => array('style' => 'width:80px'),
+				'editable' => array(
+					'type'          => 'date',
+                  	'viewformat'    => 'yyyy-mm-dd',
+					'url'     => $this->createUrl('editable'),
+					'placement'     => 'right',
+					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+				)
+		    ),
+			<?php
+			echo "\n";
+		}
+		else{
+			?>
+			array(
+		        'header' => '<?php echo ucfirst($column->name); ?>',
+		        'name'=> '<?php echo $column->name; ?>',
+		        'type'=>'raw',
+		        'value' => '($data-><?php echo $column->name; ?>)',
+		        'class' => 'bootstrap.widgets.TbEditableColumn',
+	            'headerHtmlOptions' => array('style' => 'width:80px'),
+				'editable' => array(
+					'type'    => 'text',
+					'url'     => $this->createUrl('editable'),
+					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+				)
+		    ),
+			<?php
+			echo "\n";
+		}
+
+		if ($count>5) echo "*/\n";
 		++$count;
 	}
 }

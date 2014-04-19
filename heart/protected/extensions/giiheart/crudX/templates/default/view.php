@@ -14,15 +14,7 @@ echo "\$this->breadcrumbs=array(
 );\n";
 ?>
 
-$this->menuCaption='Sub Menu';
 $this->menu=array(
-	array('label'=>'View <?php echo $this->modelClass; ?>','url'=>array('view','id'=>$model-><?php echo $this->tableSchema->primaryKey; ?>),'icon'=>'fa fa-eye','active'=>true),
-	// MASUKKAN DISINI CRUD ANAK LAINNYA
-	array('label'=>'Program Subject','url'=>Yii::app()->createUrl("pusdiklat/planning/programSubject/index", array("pId"=>$model->id)),'icon'=>'fa fa-list-alt'),
-	
-);
-
-$menu2=array(
 	array('label'=>'<?php echo $this->modelClass; ?>','url'=>array('index'),'icon'=>'fa fa-list-alt', 'items' =>
 		array(	
 			array('label'=>'List <?php echo $this->modelClass; ?>','url'=>array('index'),'icon'=>'fa fa-list-ol'),	
@@ -47,7 +39,7 @@ echo "<?php \$box = \$this->beginWidget(
                 'class' => 'bootstrap.widgets.TbButtonGroup',
                 'type' => 'success',
                 // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
-                'buttons' => \$menu2
+                'buttons' => \$this->menu
             ),
         ) 
     )
@@ -99,7 +91,7 @@ echo "<?php \$box = \$this->beginWidget(
 		        	<?php
 		        } 
 		        else{ ?>
-		        	'value' => ($model-><?php echo $value; ?>->name),
+		        	'value' => (@$model-><?php echo $value; ?>->name),
 		        	<?php
 		    	}
 		        ?>

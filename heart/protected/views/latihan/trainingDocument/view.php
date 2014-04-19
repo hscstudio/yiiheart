@@ -57,7 +57,7 @@ $menu2=array(
 		        //'header' => 'Training ',
 		        'name'=> 'tb_training_id',
 		        'type'=>'raw',
-		        		        	'value' => ($model->Training->name),
+		        		        	'value' => (@$model->Training->name),
 		        			    ),
 			
 		'name',

@@ -16,5 +16,5 @@ Yii::import('gii.generators.crud.CrudGenerator');
  */
 class CrudYGenerator extends CrudGenerator
 {
-	public $codeModel = 'bootstrap.gii.crudY.CrudYCode';
+	public $codeModel = 'ext.giiheart.crudY.CrudYCode';
 }

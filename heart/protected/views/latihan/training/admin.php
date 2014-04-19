@@ -82,11 +82,80 @@ Yii::app()->clientScript->registerScript('search', "
 					array_search($data,$this->grid->dataProvider->getData())+1',
 				'htmlOptions' => array('style' =>'width: 60px'),
 		),
-		'name',
-		'start',
-		'finish',
-		'note',
-		'status',
+			array(
+		        'header' => 'Name',
+		        'name'=> 'name',
+		        'type'=>'raw',
+		        'value' => '($data->name)',
+		        'class' => 'bootstrap.widgets.TbEditableColumn',
+	            'headerHtmlOptions' => array('style' => 'width:80px'),
+				'editable' => array(
+					'type'    => 'text',
+					'url'     => $this->createUrl('editable'),
+					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+				)
+		    ),
+			
+			array(
+		        'header' => 'Start',
+		        'name'=> 'start',
+		        'type'=>'raw',
+		        'value' => '($data->start)',
+		        'class' => 'bootstrap.widgets.TbEditableColumn',
+	            'headerHtmlOptions' => array('style' => 'width:80px'),
+				'editable' => array(
+					'type'          => 'date',
+                  	'viewformat'    => 'yyyy-mm-dd',
+					'url'     => $this->createUrl('editable'),
+					'placement'     => 'right',
+					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+				)
+		    ),
+			
+			array(
+		        'header' => 'Finish',
+		        'name'=> 'finish',
+		        'type'=>'raw',
+		        'value' => '($data->finish)',
+		        'class' => 'bootstrap.widgets.TbEditableColumn',
+	            'headerHtmlOptions' => array('style' => 'width:80px'),
+				'editable' => array(
+					'type'          => 'date',
+                  	'viewformat'    => 'yyyy-mm-dd',
+					'url'     => $this->createUrl('editable'),
+					'placement'     => 'right',
+					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+				)
+		    ),
+			
+			array(
+		        'header' => 'Note',
+		        'name'=> 'note',
+		        'type'=>'raw',
+		        'value' => '($data->note)',
+		        'class' => 'bootstrap.widgets.TbEditableColumn',
+	            'headerHtmlOptions' => array('style' => 'width:80px'),
+				'editable' => array(
+					'type'    => 'text',
+					'url'     => $this->createUrl('editable'),
+					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+				)
+		    ),
+			
+			array(
+		        'header' => 'Status',
+		        'name'=> 'status',
+		        'type'=>'raw',
+		        'value' => '($data->status)',
+		        'class' => 'bootstrap.widgets.TbEditableColumn',
+	            'headerHtmlOptions' => array('style' => 'width:80px'),
+				'editable' => array(
+					'type'    => 'text',
+					'url'     => $this->createUrl('editable'),
+					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+				)
+		    ),
+			
 		//'created',
 		//'createdBy',
 		//'modified',
