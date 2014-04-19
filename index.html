@@ -39,37 +39,96 @@
         <ul></ul>
       </nav>
       <section>
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        <h1>
+<a name="yiiheart" class="anchor" href="#yiiheart"><span class="octicon octicon-link"></span></a>yiiheart</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>YiiHeart is Yii Webapp Startup</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<p>AppVersion 1.0, 
+manualVersion 1.0
+By Hafid Mukhlasin [milisstudio @ gmail dot com]</p>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h2>
+<a name="apa-itu-yiiheart" class="anchor" href="#apa-itu-yiiheart"><span class="octicon octicon-link"></span></a>Apa Itu YiiHeart</h2>
+
+<p>Yii Hearts adalah webapp atau bootsrap yang digenerate dari framework Yii dan telah dikustomisasi. Sehingga siap digunakan sebagai base untuk membuat sebuah aplikasi.</p>
+
+<h2>
+<a name="fitur-fitur-yiiheart" class="anchor" href="#fitur-fitur-yiiheart"><span class="octicon octicon-link"></span></a>Fitur fitur YiiHeart</h2>
+
+<ul>
+<li>Yiibooster ready</li>
+<li>PHPExcel ready via EexcelView (export) dan XPHPExcel(import) serta telah dimodifikasi</li>
+<li>CRUD+++ (Create, Read, Update, Delete, Export, Import, Editable) via CRUD Yiibooster yang telah dimodifikasi.</li>
+<li>Yii rights yang telah dimodifikasi</li>
+<li>Soft Delete, apa itu.. ? bukan hapus tapi hanya dengan mengupdate field deleted, dan menghidennya dari view</li>
+</ul><h2>
+<a name="manajemen-folder" class="anchor" href="#manajemen-folder"><span class="octicon octicon-link"></span></a>Manajemen Folder</h2>
+
+<p>Pengelolaan folder pada Yii Heart adalah sebagai berikut:</p>
+
+<ul>
+<li>
+<p>Diroot directori ada dua folder yaitu:</p>
+
+<p>folder yii adalah folder framework yii
+folder heart adalah folder aplikasi kita</p>
+</li>
+<li><p>Secara umum menggunakan default Yii</p></li>
+<li>  Extension yiibooster diletakkan pada folder protected/extension/yiibooster</li>
+<li>  Extension XPHPExcel dan EexcelView diletakkan pada folder protected/extension/phpexcel, sedangkan library php excelnya sendiri diletakkan di folder protected/vendor/phpexcel</li>
+<li>  Extension right diletakkan pada folder modules/rights, sebagaimana default yang disarankan.</li>
+</ul><h2>
+<a name="struktur-database" class="anchor" href="#struktur-database"><span class="octicon octicon-link"></span></a>Struktur Database</h2>
+
+<p>Bundel dari Yii Heart ada 9 tabel, sbb:</p>
+
+<p>dimana 6 tabel yang dichecklist merupakan tabel utama, selebihnya adalah tabel contoh. Tb_admin adalah tabel yang berisi username password user, bagi yang sudah mengenal Rights Extension, maka inilah tabel user itu.. (disini diganti dengan tb_admin), sedangkan tb_employee  digunakan untuk menyimpan informasi dari si user.. misal nama, alamat, no hpp, pin bbm dll..Tabel utama lainnya adalah merupakan tabel bawaan Right Extension.</p>
+
+<h2>
+<a name="aturan-aturan-di-yiiheart" class="anchor" href="#aturan-aturan-di-yiiheart"><span class="octicon octicon-link"></span></a>Aturan-aturan di YiiHeart</h2>
+
+<p>Agar lebih maksimal dalam penggunaan Yii Heart, berikut ini beberapa aturan yang diterapkan:</p>
 
 <h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<a name="database" class="anchor" href="#database"><span class="octicon octicon-link"></span></a>DATABASE</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<ul>
+<li>  Kembalikan ke bahasa aslinya, jadi kalau bikin nama database, nama tabel, nama field sebaiknya gunakan bahasa inggris dan bentuknya tunggal. Misal tabel data karyawan, maka tulislah tb_employee bukan tb_karyawan, tb_employees (takut kedinginan kalo ditambah dg es), atau tb_pemandangan (sangat out of the box.. gak nyambung dengan isinya).</li>
+<li>  Penulisan nama tabel sebaiknya diawali dengan prefix tb_ untuk tabel utama dan ref_ untuk tabel referensi, contoh: ref_religion, tb_training</li>
+<li>  Penulisan nama field untuk primary key sebaiknya id,</li>
+<li>  Disamping id, nama filed yang sebaiknya</li>
+<li>  Penulisan nama field sebaiknya gunakan huruf kecil, jika terdiri dari dua kata atau lebih maka formatnya capitalize tanpa spasi. Contoh: id, name, birthDay, namaLainLagi, dst</li>
+<li>  Penulisan nama field untuk foreign key sebaiknya gunakan prefix tabelnya didepan. Contoh: ref_religion_id, tb_training_id</li>
+<li>  Tambahkan field2 default pada setiap tabel Anda, yaitu created, createdBy, modified, modifiedBy, deleted, deletedBy.</li>
+<li>  Tools untuk desain database mysql yang recomendate dan profesional adalah MySQL Workbench (ini yang belum ada di PostgreeSQL dan MariaDB), dan aturan diatas selaras dengan MySQL Workbench
+GENERATOR</li>
+<li><p>Untuk generate model, pada gii, gunakan Model X Generator. Isikan field Tabel prefix tabel baru kemudian field Table Name. Lalu biarkan apa adanya field Model Class</p></li>
+<li><p>Untuk generate CRUD, pada gii, gunakan Crud X Generator. Gunakan seperti biasa.</p></li>
+</ul><p>Pada contoh diatas akan mengcreated CRUD dengan model Student, lihat pada field Controller ID.. disana ditambahkan prefix folder.. jadi nanti file controller akan disimpan dalam folder /controllers/latihan/studentController.php
+Gunakan selalu prefix agar mudah maintenis kode Anda.. nama prefixnya ya gak harus latihan.. hehehe</p>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<ul>
+<li>  Selesai.. yah dengan langkah diatas Anda sudah akan mendapatkan CRUD+++.. “tanpa edit” lagi.. hhihihi tapi kalo mau lebih ikuti yang dibawah</li>
+<li>  Adapun Crud Y Generator (parent) dan Crud Z Generator (child) digunakan untuk kasus tabel parent n child.. 
+Misal ada dua tabel yaitu tb_training (diklat), dan tb_training_document (dokumen diklat). Relasi One to Many, Jadi 1 diklat punya banyak dokumen. Implementasinya adalah sebelum mengakses dokumen, maka user harus memilih diklatnya. 
+Untuk menggunakannya, </li>
+<li><p>silahkan digenerate tabel parent (tb_training)  pada Crud Y Generator, </p></li>
+<li><p>Agar CRUD Training tersebut bisa diakses oleh user maka kita buat dulu donk linknya.. silahkan buka file protected/views/layouts/main.php
+array('label'=&gt;'LATIHAN', 'url'=&gt;'#', 'icon'=&gt;'fa fa-sitemap', 'visible'=&gt;!Yii::app()-&gt;user-&gt;isGuest, 'active'=&gt;($currRoutes[0]=='latihan') ,'items'=&gt;array(array('label'=&gt;'Manage Training', 'url'=&gt;array('/latihan/training'), 'icon'=&gt;'fa fa-', 'visible'=&gt;!Yii::app()-&gt;user-&gt;isGuest),                     )),</p></li>
+<li><p>lalu generate juga tabel child (tb_training_document) pada Crud Z Generator 
+CrudZ lo jangan salah </p></li>
+<li><p>Apakah selesai? Belum selesai.. perlu kita lakukan sedikit editing pada hasil generatenya. </p></li>
+<li> Hasil Generate Crud Y, buka file view.php pada folder protected/views/NAMA_PARENT_MODEL/view.php
+misal : protected/views/latihan/training/view.php</li>
+</ul><p>Lihat line 10, masukkan link ke childnya yaitu document training, contoh:
+array('label'=&gt;Training Document,'url'=&gt;Yii::app()-&gt;createUrl("latihan/trainingDocument/index", array("pId"=&gt;$model-&gt;id)),'icon'=&gt;'fa fa-list-alt'),
+2.  Hasil Generate Crud Z, buka file controller childnya pada folder protected/controllers/NAMA_CHILD_MODELController.php
+misal : protected/controllers/latihan/trainingDocumentController.php
+ Update line 9 – 12, sesuaikan dengan parentnya.
+3.  Selesai. Ready to use.</p>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>Thx</p>
       </section>
       <footer>
         <p>Project maintained by <a href="https://github.com/hscstudio">hscstudio</a></p>
