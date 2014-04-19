@@ -40,13 +40,12 @@
       </nav>
       <section>
         <h1>
-<a name="yiiheart" class="anchor" href="#yiiheart"><span class="octicon octicon-link"></span></a>yiiheart</h1>
+<a name="yiiheart-100-1942014" class="anchor" href="#yiiheart-100-1942014"><span class="octicon octicon-link"></span></a>YiiHeart 1.0.0 (19/4/2014)</h1>
 
-<p>YiiHeart is Yii Webapp Startup</p>
+<hr><h2>
+<a name="create-project-in-minutes-are-your-ready" class="anchor" href="#create-project-in-minutes-are-your-ready"><span class="octicon octicon-link"></span></a>Create project in minutes!!!. Are your ready?</h2>
 
-<p>AppVersion 1.0, 
-manualVersion 1.0
-By Hafid Mukhlasin [milisstudio @ gmail dot com]</p>
+<p>oleh Hafid Mukhlasin [milisstudio @ gmail dot com]</p>
 
 <h2>
 <a name="apa-itu-yiiheart" class="anchor" href="#apa-itu-yiiheart"><span class="octicon octicon-link"></span></a>Apa Itu YiiHeart</h2>
@@ -57,78 +56,29 @@ By Hafid Mukhlasin [milisstudio @ gmail dot com]</p>
 <a name="fitur-fitur-yiiheart" class="anchor" href="#fitur-fitur-yiiheart"><span class="octicon octicon-link"></span></a>Fitur fitur YiiHeart</h2>
 
 <ul>
-<li>Yiibooster ready</li>
-<li>PHPExcel ready via EexcelView (export) dan XPHPExcel(import) serta telah dimodifikasi</li>
-<li>CRUD+++ (Create, Read, Update, Delete, Export, Import, Editable) via CRUD Yiibooster yang telah dimodifikasi.</li>
-<li>Yii rights yang telah dimodifikasi</li>
+<li>Yiibooster (Versi 2.1.1 origin) ready</li>
+<li>PHPExcel (1.8.0 origin) ready via EexcelView (export) dan XPHPExcel(import) serta telah dimodifikasi (dua extensi tersebut dimodifikasi path to phpexcel only)</li>
+<li>giiheart  (Versi 1.0.0 extension Gii Yii dan modifikasi Gii Yiibooster) untuk membuat CRUD+++ (Create, Read, Update, Delete, Export, Import, Editable) </li>
+<li>Yii rights (Versi 1.3.0.r147 yang telah dimodifikasi tampilannya / viewnya agar sesuai dengan bootstrap)</li>
 <li>Soft Delete, apa itu.. ? bukan hapus tapi hanya dengan mengupdate field deleted, dan menghidennya dari view</li>
 </ul><h2>
-<a name="manajemen-folder" class="anchor" href="#manajemen-folder"><span class="octicon octicon-link"></span></a>Manajemen Folder</h2>
+<a name="instalasi" class="anchor" href="#instalasi"><span class="octicon octicon-link"></span></a>Instalasi</h2>
 
-<p>Pengelolaan folder pada Yii Heart adalah sebagai berikut:</p>
+<p>Tanpa install.. download and run… :)
+1.  Download folder heart di github, <a href="https://github.com/hscstudio/yiiheart/archive/master.zip">https://github.com/hscstudio/yiiheart/archive/master.zip</a>
+2.  Ekstrak dan letakkan pada htdocs atau wwwroot Your server, sejajar dengan folder Yii Framework. 
+3.  Create database yiiheart,  and import tabel schema di folder heart/protected/data/yiheart.sql.
+4.  Ready to use
+http://localhost/heart/</p>
 
-<ul>
-<li>
-<p>Diroot directori ada dua folder yaitu:</p>
+<p>Selebihnya baca file readme.pdf ya...</p>
 
-<p>folder yii adalah folder framework yii
-folder heart adalah folder aplikasi kita</p>
-</li>
-<li><p>Secara umum menggunakan default Yii</p></li>
-<li>  Extension yiibooster diletakkan pada folder protected/extension/yiibooster</li>
-<li>  Extension XPHPExcel dan EexcelView diletakkan pada folder protected/extension/phpexcel, sedangkan library php excelnya sendiri diletakkan di folder protected/vendor/phpexcel</li>
-<li>  Extension right diletakkan pada folder modules/rights, sebagaimana default yang disarankan.</li>
-</ul><h2>
-<a name="struktur-database" class="anchor" href="#struktur-database"><span class="octicon octicon-link"></span></a>Struktur Database</h2>
-
-<p>Bundel dari Yii Heart ada 9 tabel, sbb:</p>
-
-<p>dimana 6 tabel yang dichecklist merupakan tabel utama, selebihnya adalah tabel contoh. Tb_admin adalah tabel yang berisi username password user, bagi yang sudah mengenal Rights Extension, maka inilah tabel user itu.. (disini diganti dengan tb_admin), sedangkan tb_employee  digunakan untuk menyimpan informasi dari si user.. misal nama, alamat, no hpp, pin bbm dll..Tabel utama lainnya adalah merupakan tabel bawaan Right Extension.</p>
-
-<h2>
-<a name="aturan-aturan-di-yiiheart" class="anchor" href="#aturan-aturan-di-yiiheart"><span class="octicon octicon-link"></span></a>Aturan-aturan di YiiHeart</h2>
-
-<p>Agar lebih maksimal dalam penggunaan Yii Heart, berikut ini beberapa aturan yang diterapkan:</p>
-
-<h3>
-<a name="database" class="anchor" href="#database"><span class="octicon octicon-link"></span></a>DATABASE</h3>
-
-<ul>
-<li>  Kembalikan ke bahasa aslinya, jadi kalau bikin nama database, nama tabel, nama field sebaiknya gunakan bahasa inggris dan bentuknya tunggal. Misal tabel data karyawan, maka tulislah tb_employee bukan tb_karyawan, tb_employees (takut kedinginan kalo ditambah dg es), atau tb_pemandangan (sangat out of the box.. gak nyambung dengan isinya).</li>
-<li>  Penulisan nama tabel sebaiknya diawali dengan prefix tb_ untuk tabel utama dan ref_ untuk tabel referensi, contoh: ref_religion, tb_training</li>
-<li>  Penulisan nama field untuk primary key sebaiknya id,</li>
-<li>  Disamping id, nama filed yang sebaiknya</li>
-<li>  Penulisan nama field sebaiknya gunakan huruf kecil, jika terdiri dari dua kata atau lebih maka formatnya capitalize tanpa spasi. Contoh: id, name, birthDay, namaLainLagi, dst</li>
-<li>  Penulisan nama field untuk foreign key sebaiknya gunakan prefix tabelnya didepan. Contoh: ref_religion_id, tb_training_id</li>
-<li>  Tambahkan field2 default pada setiap tabel Anda, yaitu created, createdBy, modified, modifiedBy, deleted, deletedBy.</li>
-<li>  Tools untuk desain database mysql yang recomendate dan profesional adalah MySQL Workbench (ini yang belum ada di PostgreeSQL dan MariaDB), dan aturan diatas selaras dengan MySQL Workbench
-GENERATOR</li>
-<li><p>Untuk generate model, pada gii, gunakan Model X Generator. Isikan field Tabel prefix tabel baru kemudian field Table Name. Lalu biarkan apa adanya field Model Class</p></li>
-<li><p>Untuk generate CRUD, pada gii, gunakan Crud X Generator. Gunakan seperti biasa.</p></li>
-</ul><p>Pada contoh diatas akan mengcreated CRUD dengan model Student, lihat pada field Controller ID.. disana ditambahkan prefix folder.. jadi nanti file controller akan disimpan dalam folder /controllers/latihan/studentController.php
-Gunakan selalu prefix agar mudah maintenis kode Anda.. nama prefixnya ya gak harus latihan.. hehehe</p>
-
-<ul>
-<li>  Selesai.. yah dengan langkah diatas Anda sudah akan mendapatkan CRUD+++.. “tanpa edit” lagi.. hhihihi tapi kalo mau lebih ikuti yang dibawah</li>
-<li>  Adapun Crud Y Generator (parent) dan Crud Z Generator (child) digunakan untuk kasus tabel parent n child.. 
-Misal ada dua tabel yaitu tb_training (diklat), dan tb_training_document (dokumen diklat). Relasi One to Many, Jadi 1 diklat punya banyak dokumen. Implementasinya adalah sebelum mengakses dokumen, maka user harus memilih diklatnya. 
-Untuk menggunakannya, </li>
-<li><p>silahkan digenerate tabel parent (tb_training)  pada Crud Y Generator, </p></li>
-<li><p>Agar CRUD Training tersebut bisa diakses oleh user maka kita buat dulu donk linknya.. silahkan buka file protected/views/layouts/main.php
-array('label'=&gt;'LATIHAN', 'url'=&gt;'#', 'icon'=&gt;'fa fa-sitemap', 'visible'=&gt;!Yii::app()-&gt;user-&gt;isGuest, 'active'=&gt;($currRoutes[0]=='latihan') ,'items'=&gt;array(array('label'=&gt;'Manage Training', 'url'=&gt;array('/latihan/training'), 'icon'=&gt;'fa fa-', 'visible'=&gt;!Yii::app()-&gt;user-&gt;isGuest),                     )),</p></li>
-<li><p>lalu generate juga tabel child (tb_training_document) pada Crud Z Generator 
-CrudZ lo jangan salah </p></li>
-<li><p>Apakah selesai? Belum selesai.. perlu kita lakukan sedikit editing pada hasil generatenya. </p></li>
-<li> Hasil Generate Crud Y, buka file view.php pada folder protected/views/NAMA_PARENT_MODEL/view.php
-misal : protected/views/latihan/training/view.php</li>
-</ul><p>Lihat line 10, masukkan link ke childnya yaitu document training, contoh:
-array('label'=&gt;Training Document,'url'=&gt;Yii::app()-&gt;createUrl("latihan/trainingDocument/index", array("pId"=&gt;$model-&gt;id)),'icon'=&gt;'fa fa-list-alt'),
-2.  Hasil Generate Crud Z, buka file controller childnya pada folder protected/controllers/NAMA_CHILD_MODELController.php
-misal : protected/controllers/latihan/trainingDocumentController.php
- Update line 9 – 12, sesuaikan dengan parentnya.
-3.  Selesai. Ready to use.</p>
+<p>YiiHeart dibuat dengan segenap cinta :)</p>
 
 <p>Thx</p>
+
+<p>Hafid Mukhlasin
+Depok - Jawa Barat</p>
       </section>
       <footer>
         <p>Project maintained by <a href="https://github.com/hscstudio">hscstudio</a></p>
