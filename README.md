@@ -17,10 +17,10 @@ Yii Hearts adalah webapp atau web sekeleton yang digenerate dari framework Yii d
 
 ## Instalasi
 Tanpa install.. download and run… :)
-1.	Download folder heart di github, https://github.com/hscstudio/yiiheart/archive/master.zip
-2.	Ekstrak dan letakkan pada htdocs atau wwwroot Your server, sejajar dengan folder Yii Framework
-3.	Create database yiiheart,  and import tabel schema di folder heart/protected/data/yiiheart.sql
-4.	Ready to use
+* 1.	Download folder heart di github, https://github.com/hscstudio/yiiheart/archive/master.zip
+* 2.	Ekstrak dan letakkan pada htdocs atau wwwroot Your server, sejajar dengan folder Yii Framework
+* 3.	Create database yiiheart,  and import tabel schema di folder heart/protected/data/yiiheart.sql
+* 4.	Ready to use
 http://localhost/heart/
 
 Selebihnya baca file readme.pdf ya...
