@@ -17,7 +17,7 @@ $this->pageTitle=Yii::app()->name;
 			
 			<div style="text-align:center;">
 			<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
-			<img src="images/yiiheart.png" width="200">
+			<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/yiiheart.png" width="200">
 			</div>
 			<p style="padding:10px;">
 				Last login
