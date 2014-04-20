@@ -114,19 +114,12 @@ foreach ($this->tableSchema->columns as $column) {
 		if($column->dbType=='tinyint(1)'){
 			?>
 			array(
-		        'header' => '<?php echo ucfirst($column->name); ?>',
-		        'name'=> '<?php echo $column->name; ?>',
-		        'type'=>'raw',
-		        'value' => '($data-><?php echo $column->name; ?>)?"on":"off"',
-		        'class' => 'bootstrap.widgets.TbEditableColumn',
-	            'headerHtmlOptions' => array('style' => 'width:80px'),
-				'editable' => array(
-					'type'    => 'select',
-					'url'     => $this->createUrl('editable'),
-					'source'  => array(0 => 'Off', 1 => 'On'),
-					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
-				)
-		    ),
+                'class' => 'bootstrap.widgets.TbToggleColumn',
+                'toggleAction' => '<?php echo $this->controller; ?>/toggle',
+                'headerHtmlOptions' => array('style' => 'width:80px'),
+                'name' => 'status',
+                'header' => 'Status'
+            ),
 			<?php
 			echo "\n";
 		}
