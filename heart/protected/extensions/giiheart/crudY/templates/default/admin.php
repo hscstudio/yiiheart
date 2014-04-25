@@ -146,18 +146,18 @@ foreach ($this->tableSchema->columns as $column) {
 		else{
 			?>
 			array(
-		        'header' => '<?php echo ucfirst($column->name); ?>',
-		        'name'=> '<?php echo $column->name; ?>',
-		        'type'=>'raw',
-		        'value' => '($data-><?php echo $column->name; ?>)',
-		        'class' => 'bootstrap.widgets.TbEditableColumn',
-	            'headerHtmlOptions' => array('style' => 'width:80px'),
+			        'header' => '<?php echo ucfirst($column->name); ?>',
+			        'name'=> '<?php echo $column->name; ?>',
+			        'type'=>'raw',
+			        'value' => '($data-><?php echo $column->name; ?>)',
+			        'class' => 'bootstrap.widgets.TbEditableColumn',
+		            	'headerHtmlOptions' => array('style' => 'width:80px'),
 				'editable' => array(
 					'type'    => 'text',
 					'url'     => $this->createUrl('editable'),
 					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
 				)
-		    ),
+			),
 			<?php
 			echo "\n";
 		}
