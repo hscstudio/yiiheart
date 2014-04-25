@@ -169,6 +169,15 @@ Yii::app()->clientScript->registerScript('search', "
 					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
 				)
 		    ),
+		    array(
+		        'header' => 'Status',
+		        'name'=> 'status',
+		        'type'=>'raw',
+		        'value' => '($data->status)',
+		        'class' => 'bootstrap.widgets.TbToggleColumn',
+			'headerHtmlOptions' => array('style' => 'width:80px'),
+			'toggleAction' => 'administrator/employee/toggle',
+		    ),
 			
 /*
 			array(
@@ -202,22 +211,7 @@ Yii::app()->clientScript->registerScript('search', "
 		    ),
 			
 */
-/*
-			array(
-		        'header' => 'Status',
-		        'name'=> 'status',
-		        'type'=>'raw',
-		        'value' => '($data->status)',
-		        'class' => 'bootstrap.widgets.TbEditableColumn',
-	            'headerHtmlOptions' => array('style' => 'width:80px'),
-				'editable' => array(
-					'type'    => 'text',
-					'url'     => $this->createUrl('editable'),
-					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
-				)
-		    ),
-			
-*/
+
 		//'created',
 		//'createdBy',
 		//'modified',
