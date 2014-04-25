@@ -407,12 +407,12 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 	}
 
 	public function actions()
-    {
-        return array(
-            'toggle' => array(
-                'class'=>'bootstrap.actions.TbToggleAction',
-                'modelName' => '<?php echo $this->modelClass; ?>',
-            )
-        );
-    }
+    	{
+        	return array(
+            		'toggle' => array(
+	                	'class'=>'bootstrap.actions.TbToggleAction',
+	                	'modelName' => '<?php echo $this->modelClass; ?>',
+            		)
+        	);
+    	}
 }
