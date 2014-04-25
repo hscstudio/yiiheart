@@ -378,4 +378,14 @@ class AdminController extends Controller
 	    
 	    $es->update();
 	}
+	
+	public function actions()
+	{
+		return array(
+		    'toggle' => array(
+		        'class'=>'bootstrap.actions.TbToggleAction',
+		        'modelName' => 'Admin',
+		    )
+		);
+	}
 }
