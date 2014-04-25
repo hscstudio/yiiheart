@@ -87,7 +87,7 @@ Yii::app()->clientScript->registerScript('search', "
 		        'header' => 'Username',
 		        'name'=> 'username',
 		        'type'=>'raw',
-		        'value' => '($data->username)?"on":"off"',
+		        'value' => '($data->username)',
 		        'class' => 'bootstrap.widgets.TbEditableColumn',
 	            'headerHtmlOptions' => array('style' => 'width:80px'),
 				'editable' => array(
@@ -97,13 +97,13 @@ Yii::app()->clientScript->registerScript('search', "
 				)
 		    ),
 			
-			array(
+		    array(
 		        'header' => 'Password',
 		        'name'=> 'password',
 		        'type'=>'raw',
-		        'value' => '($data->password)?"on":"off"',
+		        'value' => '($data->password)',
 		        'class' => 'bootstrap.widgets.TbEditableColumn',
-	            'headerHtmlOptions' => array('style' => 'width:80px'),
+	                'headerHtmlOptions' => array('style' => 'width:80px'),
 				'editable' => array(
 					'type'    => 'text',
 					'url'     => $this->createUrl('editable'),
@@ -111,18 +111,14 @@ Yii::app()->clientScript->registerScript('search', "
 				)
 		    ),
 			
-			array(
+		    array(
 		        'header' => 'Status',
 		        'name'=> 'status',
 		        'type'=>'raw',
-		        'value' => '($data->status)?"on":"off"',
-		        'class' => 'bootstrap.widgets.TbEditableColumn',
-	            'headerHtmlOptions' => array('style' => 'width:80px'),
-				'editable' => array(
-					'type'    => 'text',
-					'url'     => $this->createUrl('editable'),
-					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
-				)
+		        'value' => '($data->status)',
+		        'class' => 'bootstrap.widgets.TbToggleColumn',
+	            	'headerHtmlOptions' => array('style' => 'width:80px'),
+	        	'toggleAction' => 'administrator/admin/toggle',
 		    ),
 			
 		//'created',
