@@ -27,9 +27,17 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 	{
 		return array(
 			//'accessControl', // perform access control for CRUD operations
-			'rights',
+			'rights', // use rights
 		);
 	}
+	
+	/**
+	* Specifies the access control rules.
+	* @return action allowed
+	*/
+	public function allowedActions() { 
+		return 'index, view'; 
+	} 
 
 	/**
 	* Specifies the access control rules.
