@@ -122,27 +122,27 @@ foreach ($this->tableSchema->columns as $column) {
 		if($column->dbType=='tinyint(1)'){
 			?>
 			array(
-                'class' => 'bootstrap.widgets.TbToggleColumn',
-                'toggleAction' => '<?php echo $this->controller; ?>/toggle',
-                'headerHtmlOptions' => array('style' => 'width:80px'),
-                'name' => 'status',
-                'header' => 'Status'
-            ),
+		                'class' => 'bootstrap.widgets.TbToggleColumn',
+		                'toggleAction' => '<?php echo $this->controller; ?>/toggle',
+		                'headerHtmlOptions' => array('style' => 'width:80px'),
+		                'name' => '<?php echo $column->name; ?>',
+		                'header' => '<?php echo ucfirst($column->name); ?>'
+		        ),
 			<?php
 			echo "\n";
 		}
 		else if($column->dbType=='date'){
 			?>
 			array(
-		        'header' => '<?php echo ucfirst($column->name); ?>',
-		        'name'=> '<?php echo $column->name; ?>',
-		        'type'=>'raw',
-		        'value' => '($data-><?php echo $column->name; ?>)',
-		        'class' => 'bootstrap.widgets.TbEditableColumn',
-	            'headerHtmlOptions' => array('style' => 'width:80px'),
+			        'header' => '<?php echo ucfirst($column->name); ?>',
+			        'name'=> '<?php echo $column->name; ?>',
+			        'type'=>'raw',
+			        'value' => '($data-><?php echo $column->name; ?>)',
+			        'class' => 'bootstrap.widgets.TbEditableColumn',
+		            	'headerHtmlOptions' => array('style' => 'width:80px'),
 				'editable' => array(
 					'type'          => 'date',
-                  	'viewformat'    => 'yyyy-mm-dd',
+	                  		'viewformat'    => 'yyyy-mm-dd',
 					'url'     => $this->createUrl('editable'),
 					'placement'     => 'right',
 					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
@@ -154,18 +154,18 @@ foreach ($this->tableSchema->columns as $column) {
 		else{
 			?>
 			array(
-		        'header' => '<?php echo ucfirst($column->name); ?>',
-		        'name'=> '<?php echo $column->name; ?>',
-		        'type'=>'raw',
-		        'value' => '($data-><?php echo $column->name; ?>)',
-		        'class' => 'bootstrap.widgets.TbEditableColumn',
-	            'headerHtmlOptions' => array('style' => 'width:80px'),
+			        'header' => '<?php echo ucfirst($column->name); ?>',
+			        'name'=> '<?php echo $column->name; ?>',
+			        'type'=>'raw',
+			        'value' => '($data-><?php echo $column->name; ?>)',
+			        'class' => 'bootstrap.widgets.TbEditableColumn',
+		            	'headerHtmlOptions' => array('style' => 'width:80px'),
 				'editable' => array(
 					'type'    => 'text',
 					'url'     => $this->createUrl('editable'),
 					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
 				)
-		    ),
+			),
 			<?php
 			echo "\n";
 		}
