@@ -64,9 +64,9 @@ return array(
 		'authManager' => array(
 			'class'=>'RDbAuthManager',
 			'connectionID'=>'db',
-            'itemTable'=>'tb_authItem',
-			'itemChildTable'=>'tb_authItemChild',
-			'assignmentTable'=>'tb_authAssignment',
+            		'itemTable'=>'tb_authitem',
+			'itemChildTable'=>'tb_authitemchild',
+			'assignmentTable'=>'tb_authassignment',
 			'rightsTable'=>'tb_rights',
 	    ),
 		// uncomment the following to enable URLs in path-format
