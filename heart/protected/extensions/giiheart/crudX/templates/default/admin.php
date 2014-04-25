@@ -117,8 +117,8 @@ foreach ($this->tableSchema->columns as $column) {
                 'class' => 'bootstrap.widgets.TbToggleColumn',
                 'toggleAction' => '<?php echo $this->controller; ?>/toggle',
                 'headerHtmlOptions' => array('style' => 'width:80px'),
-                'name' => 'status',
-                'header' => 'Status'
+                'name' => '<?php echo $column->name; ?>',
+                'header' => '<?php echo ucfirst($column->name); ?>'
             ),
 			<?php
 			echo "\n";
