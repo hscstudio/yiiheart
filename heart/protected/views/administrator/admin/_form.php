@@ -21,9 +21,7 @@
 
 	<?php echo $form->passwordFieldRow($model,'password',array('class'=>'span5','maxlength'=>100)); ?>
 
-	<?php echo $form->textFieldRow($model,'status',array('class'=>'span5')); ?>
-
-
+	<?php echo $form->toggleButtonRow($model,'status', array('enabledLabel'=>'Active', 'disabledLabel'=>'Inactive')); ?>
 
 <div class="form-actions">
 	<?php $this->widget('bootstrap.widgets.TbButton', array(

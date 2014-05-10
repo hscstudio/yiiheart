@@ -131,13 +131,13 @@ Yii::app()->clientScript->registerScript('search', "
 		        'header' => 'Gender',
 		        'name'=> 'gender',
 		        'type'=>'raw',
-		        'value' => '($data->gender)?"on":"off"',
+		        'value' => '($data->gender)?"Pria":"Wanita"',
 		        'class' => 'bootstrap.widgets.TbEditableColumn',
 	            'headerHtmlOptions' => array('style' => 'width:80px'),
 				'editable' => array(
 					'type'    => 'select',
 					'url'     => $this->createUrl('editable'),
-					'source'  => array(0 => 'Off', 1 => 'On'),
+					'source'  => array(0 => 'Wanita', 1 => 'Pria'),
 					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
 				)
 		    ),
@@ -175,8 +175,8 @@ Yii::app()->clientScript->registerScript('search', "
 		        'type'=>'raw',
 		        'value' => '($data->status)',
 		        'class' => 'bootstrap.widgets.TbToggleColumn',
-			'headerHtmlOptions' => array('style' => 'width:80px'),
-			'toggleAction' => 'administrator/employee/toggle',
+				'headerHtmlOptions' => array('style' => 'width:80px'),
+				'toggleAction' => 'administrator/employee/toggle',
 		    ),
 			
 /*

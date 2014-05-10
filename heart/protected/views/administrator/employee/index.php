@@ -87,13 +87,16 @@ Yii::app()->clientScript->registerScript('search', "
 		),
 		//'ref_religion_id',
 		'name',
-		'born',
-		'birthDay',
+		'born', 
+		array(
+			'name'=>'birthDay',
+			'value'=>'date("d M Y", strtotime($data->birthDay))'
+		),
 		array(
 	        'header' => 'Gender',
 	        'name'=> 'gender',
 	        'type'=>'raw',
-	        'value' => '($data->gender)?"on":"off"',
+	        'value' => '($data->gender)?"Pria":"Wanita"',
 	    ),
 		
 		'phone',

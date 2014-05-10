@@ -96,7 +96,8 @@ Yii::app()->clientScript->registerScript('search', "
 					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
 				)
 		    ),
-			
+			/*
+			// i think isn't nice to display password in here
 		    array(
 		        'header' => 'Password',
 		        'name'=> 'password',
@@ -110,7 +111,7 @@ Yii::app()->clientScript->registerScript('search', "
 					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
 				)
 		    ),
-			
+			*/
 		    array(
 		        'header' => 'Status',
 		        'name'=> 'status',

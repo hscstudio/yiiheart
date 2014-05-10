@@ -326,7 +326,7 @@ class AdminController extends Controller
 
 
 						$model2=new Admin;
-												$model2->tb_employee_id=  $tb_employee_id;
+						$model2->tb_employee_id=  $tb_employee_id;
 						$model2->username=  $username;
 						$model2->password=  $password;
 						$model2->status=  $status;
@@ -338,9 +338,7 @@ class AdminController extends Controller
 						//$model2->deletedBy=  $deletedBy;
 
 						try{
-							if($model2->save()){
-								$inserted++;
-							}
+							if($model2->save()) $inserted++;
 						}
 						catch (Exception $e){
 							Yii::app()->user->setFlash('error', "{$e->getMessage()}");
@@ -354,9 +352,8 @@ class AdminController extends Controller
 				{
 					Yii::app()->user->setFlash('warning', 'Wrong file type (xlsx, xls, and ods only)');
 				}
-			}
-
-
+			} 
+			
 			$this->render('import',array(
 				'model'=>$model,
 			));

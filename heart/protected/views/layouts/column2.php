@@ -37,5 +37,4 @@
 	</div>
 	
 </div>
-<?php $this->endContent(); ?>
-<div><hr></div>
+<?php $this->endContent(); ?> 

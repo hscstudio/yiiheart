@@ -48,18 +48,19 @@ $this->breadcrumbs=array(
 	<?php echo $form->textFieldRow($model,'born',array('class'=>'span5','maxlength'=>50)); ?>
 
 	<?php echo $form->datepickerRow($model,'birthDay',
-								array(
-					                'options' => array(
-					                    'language' => 'id',
-					                    'format' => 'yyyy/mm/dd' , 'weekStart'=> 1
-					                ), 
-					            ),
-					            array(
-					                'prepend' => '<i class="icon-calendar"></i>'
-					            )
-			);; ?>
+		array(
+			'options' => array(
+				'language' => 'id',
+				'format' => 'yyyy/mm/dd' , 'weekStart'=> 1
+			), 
+		),
+		array(
+			'prepend' => '<i class="icon-calendar"></i>'
+		)
+		);
+	?>
 
-	<?php echo $form->toggleButtonRow($model,'gender'); ?>
+	<?php echo $form->toggleButtonRow($model,'gender', array('enabledLabel'=>'Pria', 'disabledLabel'=>'Wanita')); ?>
 
 	<?php echo $form->textFieldRow($model,'phone',array('class'=>'span5','maxlength'=>50)); ?>
 
