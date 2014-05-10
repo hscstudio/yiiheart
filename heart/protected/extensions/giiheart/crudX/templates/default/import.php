@@ -43,32 +43,30 @@ echo "<?php \$box = \$this->beginWidget(
 );?>";
 ?>
 
-	<div class="clearfix"></div>
-	<?php echo"<?php \$form=\$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
-		'id'=>'import-program-form',
-		'enableAjaxValidation'=>false,
-		'htmlOptions'=>array(
-			'enctype'=>'multipart/form-data',
-		),
-		//'action' => Yii::app()->createUrl('import'),  //<- your form action here
+<div class="clearfix"></div>
+<?php echo"<?php \$form=\$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
+	'id'=>'import-program-form',
+	'enableAjaxValidation'=>false,
+	'htmlOptions'=>array(
+		'enctype'=>'multipart/form-data',
+	),
+	//'action' => Yii::app()->createUrl('import'),  //<- your form action here
+)); ?>"; ?>
+
+	<?php echo"<?php \$this->widget('bootstrap.widgets.TbAlert', array(
+		   'block'=>false, // display a larger alert block?
+		   'fade'=>true, // use transitions?
+		   'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
+		   'alerts'=>array( // configurations per alert type
+				'success'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+				'info'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+				'warning'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+				'error'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+				'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+			),
 	)); ?>"; ?>
 
-		<?php echo"<?php \$this->widget('bootstrap.widgets.TbAlert', array(
-		    'block'=>false, // display a larger alert block?
-		    'fade'=>true, // use transitions?
-		    'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
-		    'alerts'=>array( // configurations per alert type
-		        'success'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'info'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'warning'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'error'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		    ),
-		));
-		?>"; ?>
-
-		<?php echo"<?php echo \$form->fileFieldRow(\$model,'fileImport'); ?> (file type permitted: xls, xlsx, ods only)"; ?>
-
+	<?php echo"<?php echo \$form->fileFieldRow(\$model,'fileImport'); ?> (file type permitted: xls, xlsx, ods only)"; ?>
 	<div class="form-actions">
 		<?php echo"<?php \$this->widget('bootstrap.widgets.TbButton', array(
 				'buttonType'=>'submit',
@@ -76,7 +74,6 @@ echo "<?php \$box = \$this->beginWidget(
 				'label'=>'Import',
 			)); ?>"; ?>
 	</div>
-
-	<?php echo"<?php \$this->endWidget(); ?>"; ?>
+<?php echo"<?php \$this->endWidget(); ?>"; ?>
 
 <?php echo"<?php \$this->endWidget(); ?>"; ?>

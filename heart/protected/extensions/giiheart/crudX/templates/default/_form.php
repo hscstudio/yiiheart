@@ -37,15 +37,15 @@ CONTOH LAIN
 <?php echo $form->fileFieldRow($model,'photo'); ?>
 <?php echo $form->textFieldRow($model,'status',array('value'=> ($model->status)?'on':'off' ,'disabled' => true)); ?>
 <?php echo $form->dropDownListRow($model,'ref_sta_unit_id',StaUnit::lists($model->ref_sta_unit_id),
-				            array(
-				                'prompt'=>'- Pilih -',
-				                'ajax'=>array(
-				                    'type'=>'POST',
-				                    'url'=>CController::createUrl('/site/staUnit'),
-				                    'update'=>'#Employee_ref_sta_unit_id',                                            
-				                ),
-				            ));
-				    ?>
+	array(
+		'prompt'=>'- Pilih -',
+		'ajax'=>array(
+			'type'=>'POST',
+			'url'=>CController::createUrl('/site/staUnit'),
+			'update'=>'#Employee_ref_sta_unit_id',                                            
+		),
+	));
+?>
 <?php
 $listGroup = array(0=>'ADMIN',1=>'GENERAL',2=>'PLANNING',3=>'EXECUTION',4=>'EVALUATION');
 echo $form->select2Row($model, 'group', array(

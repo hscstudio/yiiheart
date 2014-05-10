@@ -19,95 +19,98 @@ $this->menu=array(
 ?>
 
 <?php $box = $this->beginWidget(
-    'bootstrap.widgets.TbBox',
-    array(
-        'title' => 'View Employees #'.$model->id,
-        'headerIcon' => 'icon- fa fa-eye',
-        'headerButtons' => array(
-            array(
-                'class' => 'bootstrap.widgets.TbButtonGroup',
-                'type' => 'success',
-                // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
-                'buttons' => $this->menu
-            ),
-        ) 
-    )
+	'bootstrap.widgets.TbBox',
+	array(
+		'title' => 'View Employees: #'.$model->id.' - '.$model->name,
+		'headerIcon' => 'icon- fa fa-eye',
+		'headerButtons' => array(
+			array(
+				'class' => 'bootstrap.widgets.TbButtonGroup',
+				'type' => 'success',
+				// '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+				'buttons' => $this->menu
+			),
+		) 
+	)
 );?>
-		<?php $this->widget('bootstrap.widgets.TbAlert', array(
-		    'block'=>false, // display a larger alert block?
-		    'fade'=>true, // use transitions?
-		    'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
-		    'alerts'=>array( // configurations per alert type
-		        'success'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'info'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'warning'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'error'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		    ),
-		));
-		?>		
+<?php $this->widget('bootstrap.widgets.TbAlert', array(
+	'block'=>false, // display a larger alert block?
+	'fade'=>true, // use transitions?
+	'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
+	'alerts'=>array( // configurations per alert type
+		'success'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		'info'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		'warning'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		'error'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+	),
+)); ?>
+
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
 	'attributes'=>array(
-			'id',
-					array(
-		        //'header' => 'Religion ',
-		        'name'=> 'ref_religion_id',
-		        'type'=>'raw',
-		        		        	'value' => ($model->Religion->name),
-		        			    ),
-			
+		'id',
+		array(
+			//'header' => 'Religion ',
+			'name'=> 'ref_religion_id',
+			'type'=>'raw',
+			'value' => ($model->Religion->name),
+		), 
 		'name',
 		'born',
-		'birthDay',
-					array(
-		        //'header' => 'Ende ',
-		        'name'=> 'gender',
-		        'type'=>'raw',
-		        		        	'value' => ($model->gender)?"on":"off",
-		        			    ),
-			
+		array(
+			'name'=>'birthDay',
+			'value'=>date("d M Y", strtotime($model->birthDay)), // refer php docs about date_time format
+		),
+		array(
+			//'header' => 'Ende ',
+			'name'=> 'gender',
+			'type'=>'raw',
+			'value' => ($model->gender)?"on":"off",
+		), 
 		'phone',
 		'email',
 		'address',
-		'photo',
-		'status',
+		'photo', 
+		array( 
+			'name'=> 'status',
+			'type'=>'raw',
+			'value' => ($model->status)?"Active":"Inactive", // please double check on it, Om Hafid
+		), 
 		'created',
-					array(
-		        //'header' => 'createdBy',
-		        'name'=> 'createdBy',
-		        'type'=>'raw',
-		        'value' => @Admin::model()->findByPk($model->createdBy)->username,
-		    ),
-			
+		array(
+			//'header' => 'createdBy',
+			'name'=> 'createdBy',
+			'type'=>'raw',
+			'value' => @Admin::model()->findByPk($model->createdBy)->username,
+		),
 		'modified',
-					array(
-		        //'header' => 'modifiedBy',
-		        'name'=> 'modifiedBy',
-		        'type'=>'raw',
-		        'value' => @Admin::model()->findByPk($model->modifiedBy)->username,
-		    ),
-			
+		array(
+			//'header' => 'modifiedBy',
+			'name'=> 'modifiedBy',
+			'type'=>'raw',
+			'value' => @Admin::model()->findByPk($model->modifiedBy)->username,
+		),
 		'deleted',
-					array(
-		        //'header' => 'deletedBy',
-		        'name'=> 'deletedBy',
-		        'type'=>'raw',
-		        'value' => @Admin::model()->findByPk($model->deletedBy)->username,
-		    ),
+		array(
+			//'header' => 'deletedBy',
+			'name'=> 'deletedBy',
+			'type'=>'raw',
+			'value' => @Admin::model()->findByPk($model->deletedBy)->username,
+		),
 			
 		/*
 		//CONTOH
 		array(
-	        'header' => 'Level',
-	        'name'=> 'ref_level_id',
-	        'type'=>'raw',
-	        'value' => ($model->Level->name),
-	        // 'value' => ($model->status)?"on":"off",
-	        // 'value' => @Admin::model()->findByPk($model->createdBy)->username,
-	    ),
+			'header' => 'Level',
+			'name'=> 'ref_level_id',
+			'type'=>'raw',
+			'value' => ($model->Level->name),
+			// 'value' => ($model->status)?"on":"off",
+			// 'value' => @Admin::model()->findByPk($model->createdBy)->username,
+		),
 
-	    */
+		*/
 	),
 )); ?>
 

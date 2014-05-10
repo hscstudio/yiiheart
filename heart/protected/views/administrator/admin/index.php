@@ -87,11 +87,15 @@ Yii::app()->clientScript->registerScript('search', "
 		),
 		//'tb_employee_id',
 		'username',
-		'password',
-		'status',
+		//'password', 
+		array(
+			// custom display & sortable field
+			'name'=>'status',
+			'value'=>'($data->status)?"Active":"Inactive"', 
+		),
 		//'created',
 		//'createdBy',
-		//'modified',
+		'modified',
 		//'modifiedBy',
 		//'deleted',
 		//'deletedBy',

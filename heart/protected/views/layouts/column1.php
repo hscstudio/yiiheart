@@ -3,5 +3,4 @@
 <div id="content">
 	<?php echo $content; ?>
 </div><!-- content -->
-<?php $this->endContent(); ?>
-<div><hr></div>
+<?php $this->endContent(); ?> 

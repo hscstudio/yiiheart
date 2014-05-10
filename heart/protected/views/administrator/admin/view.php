@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
 	'Admins'=>array('index'),
-	$model->id,
+	$model->username, // use username instead of ID
 );
 
 $this->menu=array(
@@ -33,56 +33,57 @@ $this->menu=array(
         ) 
     )
 );?>
-		<?php $this->widget('bootstrap.widgets.TbAlert', array(
-		    'block'=>false, // display a larger alert block?
-		    'fade'=>true, // use transitions?
-		    'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
-		    'alerts'=>array( // configurations per alert type
-		        'success'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'info'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'warning'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'error'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		    ),
-		));
-		?>		
+
+<?php $this->widget('bootstrap.widgets.TbAlert', array(
+	'block'=>false, // display a larger alert block?
+	'fade'=>true, // use transitions?
+	'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
+	'alerts'=>array( // configurations per alert type
+		'success'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		'info'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		'warning'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		'error'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+	),
+)); ?>
+
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
 	'attributes'=>array(
-			'id',
-					array(
-		        //'header' => 'Employee ',
-		        'name'=> 'tb_employee_id',
-		        'type'=>'raw',
-		        		        	'value' => ($model->Employee->name),
-		        			    ),
-			
+		'id',
+		array(
+			//'header' => 'Employee ',
+			'name'=> 'tb_employee_id',
+			'type'=>'raw',
+			'value' => ($model->Employee->name),
+		), 
 		'username',
 		'password',
-		'status',
+		array( 
+			'name'=>'status',
+			'value'=>($model->status)?"Active":"Inactive", 
+		),
 		'created',
-					array(
-		        //'header' => 'createdBy',
-		        'name'=> 'createdBy',
-		        'type'=>'raw',
-		        'value' => @Admin::model()->findByPk($model->createdBy)->username,
-		    ),
-			
+		array(
+			//'header' => 'createdBy',
+			'name'=> 'createdBy',
+			'type'=>'raw',
+			'value' => @Admin::model()->findByPk($model->createdBy)->username,
+		),
 		'modified',
-					array(
-		        //'header' => 'modifiedBy',
-		        'name'=> 'modifiedBy',
-		        'type'=>'raw',
-		        'value' => @Admin::model()->findByPk($model->modifiedBy)->username,
-		    ),
-			
+		array(
+			//'header' => 'createdBy',
+			'name'=> 'modifiedBy',
+			'type'=>'raw',
+			'value' => @Admin::model()->findByPk($model->modifiedBy)->username,
+		), 
 		'deleted',
-					array(
-		        //'header' => 'deletedBy',
-		        'name'=> 'deletedBy',
-		        'type'=>'raw',
-		        'value' => @Admin::model()->findByPk($model->deletedBy)->username,
-		    ),
+		array(
+			//'header' => 'deletedBy',
+			'name'=> 'deletedBy',
+			'type'=>'raw',
+			'value' => @Admin::model()->findByPk($model->deletedBy)->username,
+		),
 			
 		/*
 		//CONTOH
@@ -93,8 +94,7 @@ $this->menu=array(
 	        'value' => ($model->Level->name),
 	        // 'value' => ($model->status)?"on":"off",
 	        // 'value' => @Admin::model()->findByPk($model->createdBy)->username,
-	    ),
-
+	    ), 
 	    */
 	),
 )); ?>
