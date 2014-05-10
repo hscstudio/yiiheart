@@ -30,30 +30,30 @@ Yii::app()->clientScript->registerScript('search', "
 ?>
 
 <?php $box = $this->beginWidget(
-    'bootstrap.widgets.TbBox',
-    array(
-        'title' => 'Manage Employees',
-        'headerIcon' => 'icon- fa fa-tasks',
-        'headerButtons' => array(
-            array(
-                'class' => 'bootstrap.widgets.TbButtonGroup',
-                'type' => 'success',
-                // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
-                'buttons' => $this->menu
-            ),
-        ) 
-    )
+	'bootstrap.widgets.TbBox',
+	array(
+		'title' => 'Manage Employees',
+		'headerIcon' => 'icon- fa fa-tasks',
+		'headerButtons' => array(
+			array(
+				'class' => 'bootstrap.widgets.TbButtonGroup',
+				'type' => 'success',
+				// '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+				'buttons' => $this->menu
+			),
+		) 
+	)
 );?>		<?php $this->widget('bootstrap.widgets.TbAlert', array(
-		    'block'=>false, // display a larger alert block?
-		    'fade'=>true, // use transitions?
-		    'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
-		    'alerts'=>array( // configurations per alert type
-		        'success'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'info'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'warning'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'error'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		    ),
+			'block'=>false, // display a larger alert block?
+			'fade'=>true, // use transitions?
+			'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
+			'alerts'=>array( // configurations per alert type
+				'success'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+				'info'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+				'warning'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+				'error'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+				'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+			),
 		));
 		?>
 <p>
@@ -69,12 +69,23 @@ Yii::app()->clientScript->registerScript('search', "
 )); ?>
 </div><!-- search-form -->
 
+<?php
+/*
+	Yii::app()->clientScript->registerScript('refreshGrid', "
+		function refreshGrid(id, data) { 
+			$('#employee-grid').yiiGridView.update('employee-grid');
+		} 
+	"); 
+	*/
+?>
+
 <?php echo CHtml::beginForm(array('export')); ?>
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'employee-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'type' => 'striped hover', //bordered condensed
+	//'afterAjaxUpdate'=>'refreshGrid',
 	'columns'=>array(
 		array('header'=>'No','value'=>'($this->grid->dataProvider->pagination->currentPage*
 					 $this->grid->dataProvider->pagination->pageSize
@@ -84,131 +95,136 @@ Yii::app()->clientScript->registerScript('search', "
 		),
 		//'ref_religion_id',
 			array(
-		        'header' => 'Name',
-		        'name'=> 'name',
-		        'type'=>'raw',
-		        'value' => '($data->name)',
-		        'class' => 'bootstrap.widgets.TbEditableColumn',
-	            'headerHtmlOptions' => array('style' => 'width:80px'),
+				'header' => 'Name',
+				'name'=> 'name',
+				'type'=>'raw',
+				'value' => '($data->name)',
+				'class' => 'bootstrap.widgets.TbEditableColumn',
+				'headerHtmlOptions' => array('style' => 'width:80px'),
 				'editable' => array(
-					'type'    => 'text',
-					'url'     => $this->createUrl('editable'),
+					'type'	=> 'text',
+					'url'	 => $this->createUrl('editable'),
 					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
 				)
-		    ),
+			),
 			
 			array(
-		        'header' => 'Born',
-		        'name'=> 'born',
-		        'type'=>'raw',
-		        'value' => '($data->born)',
-		        'class' => 'bootstrap.widgets.TbEditableColumn',
-	            'headerHtmlOptions' => array('style' => 'width:80px'),
+				'header' => 'Born',
+				'name'=> 'born',
+				'type'=>'raw',
+				'value' => '($data->born)',
+				'class' => 'bootstrap.widgets.TbEditableColumn',
+				'headerHtmlOptions' => array('style' => 'width:80px'),
 				'editable' => array(
-					'type'    => 'text',
-					'url'     => $this->createUrl('editable'),
+					'type'	=> 'text',
+					'url'	 => $this->createUrl('editable'),
 					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
 				)
-		    ),
+			),
 			
 			array(
-		        'header' => 'BirthDay',
-		        'name'=> 'birthDay',
-		        'type'=>'raw',
-		        'value' => '($data->birthDay)',
-		        'class' => 'bootstrap.widgets.TbEditableColumn',
-	            'headerHtmlOptions' => array('style' => 'width:80px'),
+				'header' => 'BirthDay',
+				'name'=> 'birthDay',
+				'type'=>'raw',
+				'value'=>'date("d M Y", strtotime($data->birthDay))', // refer php docs about date_time format
+				//'value' => '($data->birthDay)',
+				'class' => 'bootstrap.widgets.TbEditableColumn',
+				'headerHtmlOptions' => array('style' => 'width:80px'),
 				'editable' => array(
-					'type'          => 'date',
-                  	'viewformat'    => 'yyyy-mm-dd',
-					'url'     => $this->createUrl('editable'),
-					'placement'     => 'right',
-					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+					'type'			=> 'date',
+				  	'viewformat'	=> 'yyyy-mm-dd',
+					'url'			=> $this->createUrl('editable'),
+					'placement'		=> 'right',
+					'params'		=> array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+					// this add ability to refresh grid once the given callbacks is success
+					// otherwise prompt message alert something went wrong in js
+					'success'		=> 'js: function(response, newValue) {
+											if(!response.success) $("#employee-grid").yiiGridView.update("employee-grid");
+											else alert("Something went wrong, please tell administrator.");
+										}'
 				)
-		    ),
+			),
 			
 			array(
-		        'header' => 'Gender',
-		        'name'=> 'gender',
-		        'type'=>'raw',
-		        'value' => '($data->gender)?"Pria":"Wanita"',
-		        'class' => 'bootstrap.widgets.TbEditableColumn',
-	            'headerHtmlOptions' => array('style' => 'width:80px'),
+				'header' => 'Gender',
+				'name'=> 'gender',
+				'type'=>'raw',
+				'value' => '($data->gender)?"Pria":"Wanita"',
+				'class' => 'bootstrap.widgets.TbEditableColumn',
+				'headerHtmlOptions' => array('style' => 'width:80px'),
 				'editable' => array(
-					'type'    => 'select',
-					'url'     => $this->createUrl('editable'),
-					'source'  => array(0 => 'Wanita', 1 => 'Pria'),
-					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+					'type'	=> 'select',
+					'url'	=> $this->createUrl('editable'),
+					'source'=> array(0 => 'Wanita', 1 => 'Pria'),
+					'params'=> array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
 				)
-		    ),
+			),
 			
 			array(
-		        'header' => 'Phone',
-		        'name'=> 'phone',
-		        'type'=>'raw',
-		        'value' => '($data->phone)',
-		        'class' => 'bootstrap.widgets.TbEditableColumn',
-	            'headerHtmlOptions' => array('style' => 'width:80px'),
+				'header' => 'Phone',
+				'name'=> 'phone',
+				'type'=>'raw',
+				'value' => '($data->phone)',
+				'class' => 'bootstrap.widgets.TbEditableColumn',
+				'headerHtmlOptions' => array('style' => 'width:80px'),
 				'editable' => array(
-					'type'    => 'text',
-					'url'     => $this->createUrl('editable'),
+					'type'	=> 'text',
+					'url'	 => $this->createUrl('editable'),
 					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
 				)
-		    ),
+			),
 			
 			array(
-		        'header' => 'Email',
-		        'name'=> 'email',
-		        'type'=>'raw',
-		        'value' => '($data->email)',
-		        'class' => 'bootstrap.widgets.TbEditableColumn',
-	            'headerHtmlOptions' => array('style' => 'width:80px'),
+				'header' => 'Email',
+				'name'=> 'email',
+				'type'=>'raw',
+				'value' => '($data->email)',
+				'class' => 'bootstrap.widgets.TbEditableColumn',
+				'headerHtmlOptions' => array('style' => 'width:80px'),
 				'editable' => array(
-					'type'    => 'text',
-					'url'     => $this->createUrl('editable'),
+					'type'	=> 'text',
+					'url'	 => $this->createUrl('editable'),
 					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
 				)
-		    ),
-		    array(
-		        'header' => 'Status',
-		        'name'=> 'status',
-		        'type'=>'raw',
-		        'value' => '($data->status)',
-		        'class' => 'bootstrap.widgets.TbToggleColumn',
+			),
+			array(
+				'header' => 'Status',
+				'name'=> 'status',
+				'type'=>'raw',
+				'value' => '($data->status)',
+				'class' => 'bootstrap.widgets.TbToggleColumn',
 				'headerHtmlOptions' => array('style' => 'width:80px'),
 				'toggleAction' => 'administrator/employee/toggle',
-		    ),
+			),
 			
 /*
 			array(
-		        'header' => 'Address',
-		        'name'=> 'address',
-		        'type'=>'raw',
-		        'value' => '($data->address)',
-		        'class' => 'bootstrap.widgets.TbEditableColumn',
-	            'headerHtmlOptions' => array('style' => 'width:80px'),
+				'header' => 'Address',
+				'name'=> 'address',
+				'type'=>'raw',
+				'value' => '($data->address)',
+				'class' => 'bootstrap.widgets.TbEditableColumn',
+				'headerHtmlOptions' => array('style' => 'width:80px'),
 				'editable' => array(
-					'type'    => 'text',
-					'url'     => $this->createUrl('editable'),
+					'type'	=> 'text',
+					'url'	 => $this->createUrl('editable'),
 					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
 				)
-		    ),
+			),
 			
-*/
-/*
 			array(
-		        'header' => 'Photo',
-		        'name'=> 'photo',
-		        'type'=>'raw',
-		        'value' => '($data->photo)',
-		        'class' => 'bootstrap.widgets.TbEditableColumn',
-	            'headerHtmlOptions' => array('style' => 'width:80px'),
+				'header' => 'Photo',
+				'name'=> 'photo',
+				'type'=>'raw',
+				'value' => '($data->photo)',
+				'class' => 'bootstrap.widgets.TbEditableColumn',
+				'headerHtmlOptions' => array('style' => 'width:80px'),
 				'editable' => array(
-					'type'    => 'text',
-					'url'     => $this->createUrl('editable'),
+					'type'	=> 'text',
+					'url'	 => $this->createUrl('editable'),
 					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
 				)
-		    ),
+			),
 			
 */
 
@@ -221,14 +237,14 @@ Yii::app()->clientScript->registerScript('search', "
 		/*
 		//Contoh
 		array(
-	        'header' => 'Level',
-	        'name'=> 'ref_level_id',
-	        'type'=>'raw',
-	        'value' => '($data->Level->name)',
-	        // 'value' => '($data->status)?"on":"off"',
-	    ),
-	    */
-	    array(
+			'header' => 'Level',
+			'name'=> 'ref_level_id',
+			'type'=>'raw',
+			'value' => '($data->Level->name)',
+			// 'value' => '($data->status)?"on":"off"',
+		),
+		*/
+		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),
 	),
