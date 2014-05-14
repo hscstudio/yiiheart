@@ -1,8 +1,6 @@
 # ChangeLog
 Please update this document each time you close an issue by your commit.
 
-## YiiHeart latest development alpha  
-
 ## YiiHeart version 1.1.0-alpha (14 May 2014)
 - New concept, be a extension.
 - Focus to improve gii of yiibooster
