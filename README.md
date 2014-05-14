@@ -40,9 +40,9 @@ We use this version because this is really stable version at present. Many bug i
 8.	done
 
 ## Finally
-If any error please report to us via https://github.com/hscstudio/yiiheart/issues
-If You have added you can pull via https://github.com/hscstudio/yiiheart/pulls
-We built YiiHeart with love..
+* If any error please report to us via https://github.com/hscstudio/yiiheart/issues
+* If You have added you can pull via https://github.com/hscstudio/yiiheart/pulls
+We built YiiHeart with all of love in the world
 
 Thx
 
