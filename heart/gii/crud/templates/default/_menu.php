@@ -19,15 +19,15 @@ if($date>0){
 ?>
 $menu=array();
 if(in_array($currAction,array('index','view','create','update','admin','calendar','import')))
-$menu[]=array('label'=>'List Training','url'=>array('index'<?php if($this->modelType=="3"){ ?>,'pId'=>$pId<?php } ?>),'icon'=>'fa fa-list-ol','active'=>($currAction=='index')?true:false);
+$menu[]=array('label'=>'List <?php echo $this->modelClass; ?>','url'=>array('index'<?php if($this->modelType=="3"){ ?>,'pId'=>$pId<?php } ?>),'icon'=>'fa fa-list-ol','active'=>($currAction=='index')?true:false);
 
 if(in_array($currAction,array('index','view','create','update','admin','calendar','import')))
-$menu[]=array('label'=>'Create Training','url'=>array('create'<?php if($this->modelType=="3"){ ?>,'pId'=>$pId<?php } ?>),'icon'=>'fa fa-plus-circle','active'=>($currAction=='create')?true:false);
+$menu[]=array('label'=>'Create <?php echo $this->modelClass; ?>','url'=>array('create'<?php if($this->modelType=="3"){ ?>,'pId'=>$pId<?php } ?>),'icon'=>'fa fa-plus-circle','active'=>($currAction=='create')?true:false);
 
 if(in_array($currAction,array('index','view','create','update','admin','calendar','import')))
-$menu[]=array('label'=>'Manage Training','url'=>array('admin'<?php if($this->modelType=="3"){ ?>,'pId'=>$pId<?php } ?>),'icon'=>'fa fa-tasks','active'=>($currAction=='admin')?true:false);
+$menu[]=array('label'=>'Manage <?php echo $this->modelClass; ?>','url'=>array('admin'<?php if($this->modelType=="3"){ ?>,'pId'=>$pId<?php } ?>),'icon'=>'fa fa-tasks','active'=>($currAction=='admin')?true:false);
 
 <?php if($showCalendar==true){ ?>
 if(in_array($currAction,array('index','view','create','update','admin','calendar','import')))
-$menu[]=array('label'=>'Calendar Training','url'=>array('calendar'<?php if($this->modelType=="3"){ ?>,'pId'=>$pId<?php } ?>),'icon'=>'fa fa-calendar','active'=>($currAction=='calendar')?true:false);
+$menu[]=array('label'=>'Calendar <?php echo $this->modelClass; ?>','url'=>array('calendar'<?php if($this->modelType=="3"){ ?>,'pId'=>$pId<?php } ?>),'icon'=>'fa fa-calendar','active'=>($currAction=='calendar')?true:false);
 <?php } ?>
