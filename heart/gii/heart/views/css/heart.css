@@ -1,0 +1,16 @@
+#page
+{
+	border: 0px solid #C9E0ED  !important;
+	margin-top:50px !important;
+}
+
+#header
+{
+	padding: 0px;
+	margin: 0px 20px;
+	border-bottom: 1px solid #C9E0ED;
+}
+
+.tooltip{
+	left: 250px !important;
+}

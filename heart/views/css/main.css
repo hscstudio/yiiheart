@@ -1,0 +1,24 @@
+#page {
+    padding-top: 60px;
+    padding-bottom: 30px;
+}
+
+.select2-container{
+	margin-bottom: 10px !important;
+}
+
+.toggle-button{
+	margin-bottom: 10px !important;	
+}
+
+ul.dropdown-menu>li>a{
+	padding: 3px 10px !important;
+}
+
+div.pull-right ul.dropdown-menu>li>a{
+	padding: 3px 30px !important;
+}
+
+.bootstrap-widget-header{
+	overflow: visible !important;
+}
