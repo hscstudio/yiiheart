@@ -1,4 +1,4 @@
-﻿YiiHeart 1.1.0-alpha [19/4/2014]
+﻿YiiHeart 1.1.0-alpha [14/5/2014]
 ========
 ---
 CREATE PROFESSIONAL WEB APPLICATION IN MINUTES, ARE YOU READY?
