@@ -270,21 +270,26 @@ foreach($columns as $name=>$column)
 	
 	public function beforeSave() 
     {
-        if($this->isNewRecord)
+        $userId=0;
+		if(null!=Yii::app()->user->id) $userId=(int)Yii::app()->user->id;
+		
+		if($this->isNewRecord)
         {           
             <?php if($created) { ?> $this->created=new CDbExpression('NOW()'); <?php echo "\n"; } ?>
-            <?php if($createdBy) { ?> $this->createdBy=Yii::app()->user->id; <?php echo "\n"; } ?>
+            <?php if($createdBy) { ?> $this->createdBy=$userId; <?php echo "\n"; } ?>
 			<?php if($password) { ?>
 			$this-><?php echo $password_field; ?> = $this->hashPassword($this-><?php echo $password_field; ?>);
 			<?php echo "\n"; } ?>
+			
         }else{
             <?php if($modified) { ?> $this->modified = new CDbExpression('NOW()'); <?php echo "\n"; } ?>
-            <?php if($modifiedBy) { ?> $this->modifiedBy=Yii::app()->user->id; <?php echo "\n"; } ?>
+            <?php if($modifiedBy) { ?> $this->modifiedBy=$userId; <?php echo "\n"; } ?>
 			<?php if($password) { ?>
 			if(!empty($this-><?php echo $password_field; ?>)){
 	        	$this-><?php echo $password_field; ?> = $this->hashPassword($this-><?php echo $password_field; ?>);
 	    	}
 			<?php echo "\n"; } ?>
+			
         }
 
         <?php
@@ -302,8 +307,10 @@ foreach($columns as $name=>$column)
     }
 
     public function beforeDelete () {
+		$userId=0;
+		if(null!=Yii::app()->user->id) $userId=(int)Yii::app()->user->id;
         <?php if($status) { ?> $this->status=0; <?php echo "\n"; } ?>
-        <?php if($deletedBy) { ?> $this->deletedBy=Yii::app()->user->id; <?php echo "\n"; } ?>
+        <?php if($deletedBy) { ?> $this->deletedBy=$userId; <?php echo "\n"; } ?>
         <?php if($deleted) { ?> $this->deleted=new CDbExpression('NOW()'); <?php echo "\n"; } ?>
         <?php if($status or $deletedBy or $deleted) { ?> $this->save(); <?php echo "\n"; } ?>
 
