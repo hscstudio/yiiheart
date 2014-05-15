@@ -103,7 +103,7 @@ foreach ($this->tableSchema->columns as $column) {
 				"'header'=>'No',".
 				"'value'=>'(\$this->grid->dataProvider->pagination->currentPage*
 					 \$this->grid->dataProvider->pagination->pageSize
-					)+ ($row+1)',
+					)+ (\$row+1)',
 				'htmlOptions' => array('style' =>'width: 25px; text-align:center;'),\n" .
 			"\t\t),\n";
 	}
