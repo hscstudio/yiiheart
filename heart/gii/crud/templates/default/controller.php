@@ -218,10 +218,10 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 						}						
 					}
 					*/
-				}
-				$transaction->commit();
-				Yii::app()->user->setFlash($messageType, $message);
-				$this->redirect(array('view','id'=>$model-><?php echo $this->tableSchema->primaryKey; ?>));
+					$transaction->commit();
+					Yii::app()->user->setFlash($messageType, $message);
+					$this->redirect(array('view','id'=>$model-><?php echo $this->tableSchema->primaryKey; ?>));
+				}				
 			}
 			catch (Exception $e){
 				$transaction->rollBack();
@@ -587,25 +587,25 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 
 	public function actionEditable(){
 		Yii::import('bootstrap.widgets.TbEditableSaver'); 
-	    $es = new TbEditableSaver('<?php echo $this->modelClass; ?>');  
-	    $es->onBeforeUpdate = function($event) {
-	    	<?php
-	    	$fieldModified=false;
-	    	foreach ($this->tableSchema->columns as $column) {
-	        	if($column->name=='modified' or $column->name=='modifiedBy'){
-	        		$fieldModified=true;
-		        }
-		    }
-	        
-	        if($fieldModified){
-	        	?>
-	        	$event->sender->setAttribute('modified', new CDbExpression('NOW()'));
-	        	$event->sender->setAttribute('modifiedBy', Yii::app()->user->id);
-	        	<?php
-	    	}
-	    	?>
-	    };
-	    
+	    $es = new TbEditableSaver('<?php echo $this->modelClass; ?>'); 
+		<?php
+		$fieldModified=false;
+		foreach ($this->tableSchema->columns as $column) {
+			if($column->name=='modified' or $column->name=='modifiedBy'){
+				$fieldModified=true;
+			}
+		}
+		
+		if($fieldModified){
+			?>		
+			$es->onBeforeUpdate = function($event) {
+				
+					$event->sender->setAttribute('modified', new CDbExpression('NOW()'));
+					$event->sender->setAttribute('modifiedBy', Yii::app()->user->id);
+			};
+			<?php
+		}
+		?>
 	    $es->update();
 	}
 
