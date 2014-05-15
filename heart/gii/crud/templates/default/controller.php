@@ -533,20 +533,20 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 						$count=0;
 						foreach ($this->tableSchema->columns as $column) {
 							if($count!=0) echo "\t\t\t\t\t\t";
-							else if ($column->autoIncrement or in_array($column->name, array('created','createdBy','modified','modifiedBy','deleted','deletedBy'))) 
+							if ($column->autoIncrement or in_array($column->name, array('created','createdBy','modified','modifiedBy','deleted','deletedBy'))) 
 								echo "//\$" . $column->name . "=  \$sheetData[\$baseRow]['".$abjadX[$count]."'];\n";	
 							else 
 								echo "\$" . $column->name . "=  \$sheetData[\$baseRow]['".$abjadX[$count]."'];\n";
 							$count++;
 						}
-						echo "\n\n";
+						echo "\n";
 						?>
 						$model2=new <?php echo $this->modelClass; ?>;
 						<?php
 						$count=0;
 						foreach ($this->tableSchema->columns as $column) {
 							if($count!=0) echo "\t\t\t\t\t\t";
-							else if ($column->autoIncrement or in_array($column->name, array('created','createdBy','modified','modifiedBy','deleted','deletedBy'))) 
+							if ($column->autoIncrement or in_array($column->name, array('created','createdBy','modified','modifiedBy','deleted','deletedBy'))) 
 								echo "//\$model2->" . $column->name . "=  \$".$column->name.";\n";
 							else 
 								echo "\$model2->" . $column->name . "=  \$".$column->name.";\n";
