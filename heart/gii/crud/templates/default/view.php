@@ -152,7 +152,7 @@ echo "<?php \$box = \$this->beginWidget(
 			array(
 		        'name'=> '<?php echo $column->name; ?>',
 		        'type'=>'raw',
-		        'value' => date("l, n F Y",strtotime($model-><?php echo $column->name; ?>)),
+		        'value' => date("l, d M Y",strtotime($model-><?php echo $column->name; ?>)),
 		    ),
 			<?php
 			echo "\n";
@@ -164,7 +164,7 @@ echo "<?php \$box = \$this->beginWidget(
 			array(
 		        'name'=> '<?php echo $column->name; ?>',
 		        'type'=>'raw',
-		        'value' => date("n F Y H:i:s",strtotime($model-><?php echo $column->name; ?>)),
+		        'value' => date("d M Y H:i:s",strtotime($model-><?php echo $column->name; ?>)),
 		    ),
 			<?php
 			echo "\n";
