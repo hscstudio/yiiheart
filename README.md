@@ -37,9 +37,9 @@ We hope You get have fun coding :)
 ## Installation
 1.	Download YiiFramework 1.1.14 from http://yiifarmework.com/downloads/ an extract to Your web root (htdocs)
 2.	Create Web Application base on YiiFramework (Use command prompt)
-3.	Download Yiibooster 4.0.0 from https://sourceforge.net/projects/yiibooster/files/latest/download?source=files extract to extension directory of Your web aplication
+3.	Download Yiibooster 4.0.0 from https://sourceforge.net/projects/yiibooster/files/latest/download?source=files extract to extension directory of Your web application
 4.	Configure on main config (app/protected/main/config.php) of web applications so yiibooster ready
-5.	Download YiiHeart 1.2 from https://github.com/hscstudio/yiiheart and extract to extension directory of Your web aplication
+5.	Download YiiHeart 1.2 from https://github.com/hscstudio/yiiheart and extract to extension directory of Your web application
 6.	Configure on main config of web applications so yiiheart ready
 7.	Please check Your installation via web browser http://localhost/app, Wow.. yiibooster and yiiheart ready without coding anymore.. Yes You get it only follow this instruction.
 8.	done
